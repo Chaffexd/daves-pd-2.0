@@ -33,6 +33,7 @@ const Form = () => {
         firstName: firstNameInputRef.current.value,
         lastName: lastNameInputRef.current.value,
         quoteInfo: quoteBodyRef.current.value,
+        phoneNumber: phoneNumberRef.current.value
       });
       console.log("success");
       alert("Form sent successfully!");

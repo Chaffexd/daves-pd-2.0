@@ -26,7 +26,7 @@ const Footer = () => {
             </div>
             <div className='flex flex-col items-center'>
                 <EmailIcon />
-                <a href="mailto:davidchaff@hotmail.co.uk?subject=I would like a quote!" className='mt-4 text-sky-400 hover:text-sky-300'>Email Us</a> 
+                <a href="mailto:davidchaff@hotmail.co.uk?subject=I would like a quote!" className='mt-4 text-sky-400 hover:text-sky-600'>Email Us</a> 
             </div>
 
         </div>

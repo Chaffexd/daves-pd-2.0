@@ -52,7 +52,7 @@ const Pledge = () => {
         <Button />
       </div>
       <div className="flex flex-col items-center p-12 w-1/2">
-        <img src={"/public/assets/external2.webp"} className="rounded-b-lg w-4/5" />
+        <img src={"/public/assets/external2.webp"} className="rounded-b-lg w-4/5" alt="House exterior" />
       </div>
     </section>
   );

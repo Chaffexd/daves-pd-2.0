@@ -4,7 +4,6 @@ function useInputValidation() {
   const [errors, setErrors] = useState({});
 
   const validateInput = (name, value) => {
-    // Add your validation logic here
     let newErrors = { ...errors };
     if (name === "phoneNumber" && value.length !== 11) {
       newErrors[name] = "Please enter a valid number";

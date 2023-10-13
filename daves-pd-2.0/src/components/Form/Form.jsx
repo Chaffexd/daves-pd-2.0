@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import useInputValidation from '../../hooks/use-input';
 
 const Form = () => {
   const firstNameInputRef = useRef("");
@@ -9,7 +10,7 @@ const Form = () => {
   const quoteBodyRef = useRef("");
 
   const [loading, setLoading] = useState(false);
-  const [invalidInput, setInvalidInput] = useState(false);
+  const { errors, validateInput } = useInputValidation();
 
   useEffect(() => {
     emailjs.init("QHP0nHj3ZRD_OMuYP");
@@ -20,13 +21,8 @@ const Form = () => {
     setLoading(true);
 
     try {
-      if (
-        phoneNumberRef.current.value.length !== 11 ||
-        quoteBodyRef.current.value.length < 10
-      ) {
-        setInvalidInput(true);
-        console.log("invalid status:" + invalidInput);
-        setLoading(false);
+      if (Object.keys(errors).length > 0) {
+        setLoading(false)
         return;
       }
       await emailjs.send("Decorating Service", "template_nh6cb48", {
@@ -38,7 +34,6 @@ const Form = () => {
       console.log("success");
       alert("Form sent successfully!");
       setLoading(false);
-      setInvalidInput(false);
     } catch (error) {
       console.log(error);
     }
@@ -61,7 +56,9 @@ const Form = () => {
           ref={firstNameInputRef}
           className="mr-4 rounded-md p-1 block w-full"
           required
+          onBlur={(e) => validateInput("firstName", e.target.value)}
         />
+        {errors.firstName && <p className="text-red-500">{errors.firstName}</p>}
       </div>
       <div className="mb-4">
         <label htmlFor="lastName" className="mr-4 ">
@@ -74,7 +71,9 @@ const Form = () => {
           ref={lastNameInputRef}
           className="rounded-md p-1 block w-full"
           required
+          onBlur={(e) => validateInput("lastName", e.target.value)}
         />
+        {errors.lastName && <p className="text-red-500">{errors.lastName}</p>}
       </div>
       <div className="mb-4">
         <label htmlFor="phoneNumber" className="mr-4 ">
@@ -87,9 +86,10 @@ const Form = () => {
           placeholder="Enter your phone number"
           ref={phoneNumberRef}
           className="rounded-md p-1 w-full"
+          onBlur={(e) => validateInput("phoneNumber", e.target.value)}
         />
-        {invalidInput && (
-          <p className="text-red-500">Please enter a valid number</p>
+        {errors.phoneNumber && (
+          <p className="text-red-500">{errors.phoneNumber}</p>
         )}
       </div>
       <div className="mb-4">
@@ -103,7 +103,11 @@ const Form = () => {
           placeholder="Email"
           ref={emailInputRef}
           className="rounded-md p-1 w-full"
+          onBlur={(e) => validateInput("email", e.target.value)}
         />
+        {errors.email && <p className="text-red-500">
+            {errors.email}
+          </p>}
       </div>
       <div className="flex flex-col mb-12">
         <label htmlFor="quoteinfo" className="mb-4">
@@ -112,14 +116,14 @@ const Form = () => {
         <textarea
           type="text"
           required
-          id="quoteinfo"
+          id="quoteInfo"
           ref={quoteBodyRef}
           placeholder="Enter your quote information here, please be as descriptive as possible"
           className="rounded-md p-1"
         />
-        {invalidInput && (
+        {errors.quoteInfo && (
           <p className="text-red-500">
-            The information provided is not sufficient
+            {errors.quoteInfo}
           </p>
         )}
       </div>

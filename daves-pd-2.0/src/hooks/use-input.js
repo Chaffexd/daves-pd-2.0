@@ -16,6 +16,8 @@ function useInputValidation() {
       newErrors[name] ="Name cannot be empty";
     } else if (name === "email" && value.trim() === "") {
       newErrors[name] = "Please enter a valid email address";
+    } else if(name === "quoteInfo" && value.length < 10) {
+      newErrors[name] = "This field requires more information"
     } else {
       delete newErrors[name];
     }

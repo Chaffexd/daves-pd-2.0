@@ -3,22 +3,22 @@ import React from "react";
 const paintProviders = [
   {
     id: "x1",
-    image: "/public/assets/dulux.webp",
+    image: "/assets/dulux.webp",
     alt: "Dulux Paints",
   },
   {
     id: "x2",
-    image: "/public/assets/farrowball.webp",
+    image: "/assets/farrowball.webp",
     alt: "Dulux Paints",
   },
   {
     id: "x3",
-    image: "/public/assets/sanderson.webp",
+    image: "/assets/sanderson.webp",
     alt: "Dulux Paints",
   },
   {
     id: "x4",
-    image: "/public/assets/paintpaper.webp",
+    image: "/assets/paintpaper.webp",
     alt: "Dulux Paints",
   },
 ];

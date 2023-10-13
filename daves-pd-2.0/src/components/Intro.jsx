@@ -1,7 +1,7 @@
 import React from "react";
 import Button from './ui/Button'
 
-import landingImage from '../../public/assets/landing.webp';
+import landingImage from '/public/assets/landing.webp';
 
 const Intro = () => {
   return (

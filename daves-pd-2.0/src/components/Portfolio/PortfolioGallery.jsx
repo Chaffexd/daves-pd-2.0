@@ -29,7 +29,7 @@ const workImages = [
 
 const PortfolioGallery = () => {
   return (
-    <section className="grid grid-cols-4 my-24 w-full">
+    <section className="grid grid-cols-1 lg:grid-cols-4 my-24 w-full">
       {workImages.map((image) => (
         <PortfolioItem
           key={image.id}

@@ -8,8 +8,8 @@ const Footer = () => {
   return (
     <footer className='my-24'>
         <h1 className='text-3xl my-12 text-center'>Contact Us</h1>
-        <div className='flex w-full justify-evenly'>
-            <div className='flex flex-col items-center'>
+        <div className='flex flex-col lg:flex-row w-full justify-evenly'>
+            <div className='flex flex-col items-center lg:mb-0 mb-8'>
                 <PhoneIcon />
                 <p className='mt-4'>Call us</p>
                 <p>07988107552</p>

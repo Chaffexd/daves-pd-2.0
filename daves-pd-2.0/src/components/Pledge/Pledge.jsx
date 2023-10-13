@@ -34,8 +34,8 @@ const pledgeList = [
 
 const Pledge = () => {
   return (
-    <section className="flex mt-12 mb-12">
-      <div className="flex flex-col justify-center p-12 w-1/2">
+    <section className="lg:flex mt-12 mb-12">
+      <div className="flex flex-col justify-center p-12 lg:w-1/2">
         <h1 className="mb-4">
           Excellent service guaranteed, delivered by our painters and decorators
           across London and Hertfordshire
@@ -51,7 +51,7 @@ const Pledge = () => {
         </ul>
         <Button />
       </div>
-      <div className="flex flex-col items-center p-12 w-1/2">
+      <div className="flex flex-col items-center p-12 lg:w-1/2">
         <img src={"/public/assets/external2.webp"} className="rounded-b-lg w-4/5" alt="House exterior" />
       </div>
     </section>

@@ -30,7 +30,7 @@ const icons = [
 const TeamAward = () => {
   return (
     icons.map(icon => 
-        <div key={icon.id} className='mb-12 w-1/5 flex flex-col items-center'>
+        <div key={icon.id} className='mb-12 lg:w-1/5 flex flex-col items-center'>
             <img src={icon.icon} alt={icon.title} className='mb-4 h-16' />
             <h2 className='mb-4 font-bold'>{icon.title}</h2>
             <p className='text-center'>{icon.text}</p>

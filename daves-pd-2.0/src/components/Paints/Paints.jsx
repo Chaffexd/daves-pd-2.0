@@ -31,7 +31,7 @@ const Paints = () => {
         quality jobs across London
       </h1>
       <p className="mb-4">We guarantee a perfect result using one of these providers</p>
-      <div className="flex items-center flex-row justify-evenly	w-5/6">
+      <div className="flex items-center flex-row justify-evenly lg:w-5/6">
         {paintProviders.map((provider) => (
           <img key={provider.id} src={provider.image} alt={provider.alt} className="w-1/4" />
         ))}

@@ -120,6 +120,7 @@ const Form = () => {
           ref={quoteBodyRef}
           placeholder="Enter your quote information here, please be as descriptive as possible"
           className="rounded-md p-1"
+          onBlur={(e) => validateInput("quoteInfo", e.target.value)}
         />
         {errors.quoteInfo && (
           <p className="text-red-500">

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import useInputValidation from '../../hooks/use-input';
+import useInputValidation from "../../hooks/use-input";
 
 const Form = () => {
   const firstNameInputRef = useRef("");
@@ -22,14 +22,14 @@ const Form = () => {
 
     try {
       if (Object.keys(errors).length > 0) {
-        setLoading(false)
+        setLoading(false);
         return;
       }
       await emailjs.send("Decorating Service", "template_nh6cb48", {
         firstName: firstNameInputRef.current.value,
         lastName: lastNameInputRef.current.value,
         quoteInfo: quoteBodyRef.current.value,
-        phoneNumber: phoneNumberRef.current.value
+        phoneNumber: phoneNumberRef.current.value,
       });
       console.log("success");
       alert("Form sent successfully!");
@@ -105,9 +105,7 @@ const Form = () => {
           className="rounded-md p-1 w-full"
           onBlur={(e) => validateInput("email", e.target.value)}
         />
-        {errors.email && <p className="text-red-500">
-            {errors.email}
-          </p>}
+        {errors.email && <p className="text-red-500">{errors.email}</p>}
       </div>
       <div className="flex flex-col mb-12">
         <label htmlFor="quoteinfo" className="mb-4">
@@ -122,14 +120,10 @@ const Form = () => {
           className="rounded-md p-1"
           onBlur={(e) => validateInput("quoteInfo", e.target.value)}
         />
-        {errors.quoteInfo && (
-          <p className="text-red-500">
-            {errors.quoteInfo}
-          </p>
-        )}
+        {errors.quoteInfo && <p className="text-red-500">{errors.quoteInfo}</p>}
       </div>
       <button disabled={loading} className={loadingButtonClasses}>
-        Submit
+        {loading ? "Submitting..." : "Submit"}
       </button>
     </form>
   );
